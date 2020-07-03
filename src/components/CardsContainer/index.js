@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Container } from './styles';
-
-import api from '../../services/api';
 import Card from '../Card';
+import api from '../../services/api';
 
-export default function CardsContainer(addToCart, searchItem) {
+export default function CardsContainer({ addToCart, searchTerm }) {
   const [pokemonType, setPokemonType] = useState([]);
 
   useEffect(() => {
-    async function getPokemons() {
+    async function getPokemon() {
       const response = await api.get('/electric');
-      setPokemonType(response.data.pokemon)
-      //console.log(response.data);
+      setPokemonType(response.data.pokemon);
     }
-    getPokemons();
+    getPokemon();
+
   }, [])
 
   function addItem(currentPokemon) {
@@ -23,11 +23,10 @@ export default function CardsContainer(addToCart, searchItem) {
   return (
     <Container>
       {pokemonType
-        // .filter(pokemon => pokemon.pokemon.name.includes(searchItem))
+        //.filter(pokemon => pokemon.pokemon.name.includes(searchTerm))
         .map(pokemon => {
           return <Card pokemon={pokemon} addToCart={addItem} key={pokemon.pokemon.name} />
-
         })}
     </Container>
-  )
-}
+  );
+};
