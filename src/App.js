@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactNotification from 'react-notifications-component';
 
 import CardsContainer from '../src/components/CardsContainer';
 import Cart from '../src/components/Cart';
 
 import { Content } from './global.js';
+import 'react-notifications-component/dist/theme.css'
 
 function App() {
 
@@ -31,11 +32,13 @@ function App() {
   }
 
   return (
-    <Content>
+    <>
       <ReactNotification />
-      {getCards()}
-      {showCart(cartItems, totalPrice)}
-    </Content>
+      <Content>
+        {getCards()}
+        {showCart(cartItems, totalPrice)}
+      </Content>
+    </>
   );
 }
 

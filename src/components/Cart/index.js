@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import { CartContainer, CartPhoto } from './styles';
+import {
+  CartContainer,
+  CartPhoto,
+  H1,
+  Items,
+  ItemName,
+  ItemPrice,
+  BtnContent,
+  H2,
+  BtnShop
+} from './styles';
 
 export default function Cart({ cartItems, totalPrice, endShop }) {
   const [currentCartItems, setCartItems] = useState([]);
@@ -11,24 +21,27 @@ export default function Cart({ cartItems, totalPrice, endShop }) {
 
   return (
     <CartContainer>
-      <h1>Carrinho de compras</h1>
+      <H1>Carrinho</H1>
       {
         currentCartItems.map(item => {
           return (
-            <div key={item.id}>
+            <Items key={item.id}>
               <CartPhoto src={item.sprites.front_default} alt={item.name} />
-              <p>{item.name}</p>
-              <p>{item.order}</p>
-            </div>
+              <ItemName>{item.name}</ItemName>
+              <ItemPrice>{item.order}</ItemPrice>
+            </Items>
           );
         })}
 
-      <h2>Total : R$ {totalPrice}</h2>
-      <button onClick={() => {
-        endShop()
-      }}
+      <BtnContent>
 
-      >Finalizar compra</button>
+        <H2>Total : R$ {totalPrice}</H2>
+        <BtnShop onClick={() => {
+          endShop()
+        }}
+
+        >Finalizar compra</BtnShop>
+      </BtnContent>
     </CartContainer>
   );
 }
