@@ -4,7 +4,7 @@ import { Container } from './styles';
 import Card from '../Card';
 import api from '../../services/api';
 
-export default function CardsContainer({ addToCart, searchTerm }) {
+export default function CardsContainer({ addToCart, searchItem }) {
   const [pokemonType, setPokemonType] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function CardsContainer({ addToCart, searchTerm }) {
   return (
     <Container>
       {pokemonType
-        //.filter(pokemon => pokemon.pokemon.name.includes(searchTerm))
+        .filter(pokemon => pokemon.pokemon.name.includes(searchItem))
         .map(pokemon => {
           return <Card pokemon={pokemon} addToCart={addItem} key={pokemon.pokemon.name} />
         })}

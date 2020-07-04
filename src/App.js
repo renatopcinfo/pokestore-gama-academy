@@ -7,11 +7,13 @@ import Modal from '../src/components/Modal';
 
 import { Content } from './global.js';
 import 'react-notifications-component/dist/theme.css'
+import Header from './components/Header';
 
 function App() {
 
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [searchItem, setSearchItem] = useState('');
   const [showModal, setShowModal] = useState(false);
 
 
@@ -35,7 +37,7 @@ function App() {
   }
 
   function getCards() {
-    return <CardsContainer addToCart={addPokemonToCart} />
+    return <CardsContainer addToCart={addPokemonToCart} searchItem={searchItem} />
   }
 
   function showModalShop() {
@@ -46,6 +48,7 @@ function App() {
   return (
     <>
       <ReactNotification />
+      <Header onSearchClick={(searchItem) => { setSearchItem(searchItem) }} />
       <Content>
         {getCards()}
         {showCart(cartItems, totalPrice)}
