@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  background-color: blue;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Img = styled.img`
+  max-width: 200px;
+  max-height: 250px;
+  padding: 7px 100px 15px 10px;
+`;
+
 export const SearchBar = styled.div`
   display: flex;
   width: 50%;
