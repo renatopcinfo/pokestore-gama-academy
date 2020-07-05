@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ReactNotification from 'react-notifications-component';
+import Swal from 'sweetalert2';
 
 import CardsContainer from '../src/components/CardsContainer';
 import Cart from '../src/components/Cart';
-import Modal from '../src/components/Modal';
 
 import { Content } from './global.js';
 import 'react-notifications-component/dist/theme.css'
@@ -14,17 +14,17 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [searchItem, setSearchItem] = useState('');
-  const [showModal, setShowModal] = useState(false);
-
 
   function endShop() {
     setCartItems([]);
     setTotalPrice(0);
 
-    setShowModal(true);
-    setTimeout(() => {
-      setShowModal(false)
-    }, 4000);
+    Swal.fire({
+      title: 'Obrigado pela compra!',
+      text: `Você ganhou cashback: R$${Math.round(0.10 * totalPrice)},00 (5%)`,
+      icon: 'success',
+      confirmButtonText: 'Comprar mais'
+    })
   }
 
   function showCart(cartItems, totalPrice) {
@@ -40,10 +40,6 @@ function App() {
     return <CardsContainer addToCart={addPokemonToCart} searchItem={searchItem} />
   }
 
-  function showModalShop() {
-    if (showModal === true)
-      return (<Modal />);
-  }
 
   return (
     <>
@@ -52,7 +48,6 @@ function App() {
       <Content>
         {getCards()}
         {showCart(cartItems, totalPrice)}
-        {showModalShop()};
       </Content>
     </>
   );
