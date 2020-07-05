@@ -19,6 +19,19 @@ export default function Cart({ cartItems, totalPrice, endShop }) {
     setCartItems([...cartItems]);
   }, [cartItems])
 
+  useEffect(() => {
+    const items = localStorage.getItem("Pokemon");
+
+    if (items) {
+      setCartItems(JSON.parse(items));
+    }
+
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("Pokemon", JSON.stringify(currentCartItems));
+  }, [currentCartItems])
+
   return (
     <CartContainer>
       <H1>Carrinho</H1>
