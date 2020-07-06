@@ -42,7 +42,7 @@ export default function Card({ pokemon, addToCart }) {
           store.addNotification({
             title: 'Adicionado ao carrinho',
             insert: 'bottom',
-            type: 'success',
+            type: 'info',
             message: currentPokemon.name,
             container: 'bottom-right',
             dismiss: {
