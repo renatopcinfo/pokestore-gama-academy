@@ -47,9 +47,9 @@ function App() {
       <ReactNotification />
       <Header onSearchClick={(searchItem) => { setSearchItem(searchItem) }} />
       <Content>
+        <GlobalStyle />
         {getCards()}
         {showCart(cartItems, totalPrice)}
-        <GlobalStyle />
       </Content>
     </>
   );
