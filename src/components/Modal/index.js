@@ -1,14 +1,14 @@
-import React from 'react';
+import Swal from 'sweetalert2';
 
-import { ModalShop } from './styles';
+export default function endShop({ setCartItems, setTotalPrice, totalPrice }) {
+  setCartItems([]);
+  setTotalPrice(0);
+  totalPrice('');
 
-export default function Modal() {
-  return (
-    <ModalShop>
-      <h1>Seu pedido foi concluído com sucesso!
-        <p>Em instante você receberá um e-mail com o andamento do seu pedido.</p>
-        Obrigado pela compra!
-      </h1>
-    </ModalShop>
-  )
+  Swal.fire({
+    title: 'Obrigado pela compra!',
+    text: `Você ganhou cashback: R$${Math.round(0.10 * totalPrice)},00 (5%)`,
+    icon: 'success',
+    confirmButtonText: 'Comprar mais'
+  })
 }

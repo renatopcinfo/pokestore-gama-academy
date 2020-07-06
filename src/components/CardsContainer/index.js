@@ -9,7 +9,7 @@ export default function CardsContainer({ addToCart, searchItem }) {
 
   useEffect(() => {
     async function getPokemon() {
-      const response = await api.get('/water');
+      const response = await api.get('/fire');
       setPokemonType(response.data.pokemon);
     }
     getPokemon();
