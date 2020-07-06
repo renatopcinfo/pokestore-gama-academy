@@ -5,7 +5,9 @@ import Swal from 'sweetalert2';
 import CardsContainer from '../src/components/CardsContainer';
 import Cart from '../src/components/Cart';
 
-import { Content } from './global.js';
+import { Content } from '../src/styles/styles.js';
+import GlobalStyle from './styles/global';
+
 import 'react-notifications-component/dist/theme.css'
 import Header from './components/Header';
 
@@ -21,7 +23,7 @@ function App() {
 
     Swal.fire({
       title: 'Obrigado pela compra!',
-      text: `Você ganhou cashback: R$${Math.round(0.10 * totalPrice)},00 (5%)`,
+      text: `Você ganhou cashback: R$${Math.round(0.03 * totalPrice)},00 (5%)`,
       icon: 'success',
       confirmButtonText: 'Comprar mais'
     })
@@ -40,7 +42,6 @@ function App() {
     return <CardsContainer addToCart={addPokemonToCart} searchItem={searchItem} />
   }
 
-
   return (
     <>
       <ReactNotification />
@@ -48,6 +49,7 @@ function App() {
       <Content>
         {getCards()}
         {showCart(cartItems, totalPrice)}
+        <GlobalStyle />
       </Content>
     </>
   );

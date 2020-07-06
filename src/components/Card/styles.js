@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   max-width: 250px;
   max-height:300px;
   margin: 15px;
-  text-align: center;
+  text-align: center; 
 `;
 
 export const CardImg = styled.img`
