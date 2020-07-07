@@ -1,6 +1,6 @@
 # Desafio: Loja Online - Pokestore
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![GitHub issues](https://img.shields.io/github/issues/renatopcinfo/pokestore-gama-academy)](https://github.com/renatopcinfo/pokestore-gama-academy/issues)
 
 ### Installation
 
