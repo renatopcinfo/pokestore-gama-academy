@@ -29,7 +29,9 @@ function App() {
   }
 
   function showCart(cartItems, totalPrice) {
-    return (<Cart cartItems={cartItems} totalPrice={totalPrice} endShop={endShop} />)
+    return (
+      <Cart cartItems={cartItems} totalPrice={totalPrice} endShop={endShop} />
+    )
   }
 
   function addPokemonToCart(currentPokemon) {
