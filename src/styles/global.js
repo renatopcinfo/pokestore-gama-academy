@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import px2vw from "../utils/px2vw";
 
 export const Global = createGlobalStyle`
@@ -18,6 +18,11 @@ export const Global = createGlobalStyle`
         font-size: ${px2vw(16)};
       }
     }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default Global;

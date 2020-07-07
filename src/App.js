@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 import CardsContainer from '../src/components/CardsContainer';
 import Cart from '../src/components/Cart';
 
-import { Content } from '../src/styles/styles.js';
-import GlobalStyle from './styles/global';
+import GlobalStyle, { Content } from './styles/global';
 
 import 'react-notifications-component/dist/theme.css'
 import Header from './components/Header';
